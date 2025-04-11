@@ -10,7 +10,7 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
     "format": "prettier .  --write",
     "prepare": "husky install",
-    "test": "vitest",
+    "test": "vitest run",
     "test:watch": "vitest watch"
   },
   "dependencies": {

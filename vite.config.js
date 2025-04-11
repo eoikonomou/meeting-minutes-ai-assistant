@@ -65,6 +65,12 @@ export default defineConfig(({ mode }) => {
                 '@': fileURLToPath(new URL('./src', import.meta.url))
             },
             extensions: ['.js', '.vue', '.ts']
+        },
+        test: {
+            globals: true,
+            environment: 'jsdom', // or 'happy-dom'
+            setupFiles: './src/test/setup.ts', // optional, useful for global mocks
+            include: ['src/**/*.spec.ts', 'src/**/*.test.ts']
         }
     }
 })

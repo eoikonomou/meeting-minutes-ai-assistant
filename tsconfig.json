@@ -1,33 +1,26 @@
 {
-    "include": [
-        "src",
-        "src/typed-router.d.ts",
-        "src/auto-imports.d.ts",
-        "src/auto-routes.d.ts",
-        "src/test/setup.ts"
+  "include": ["src", "src/auto-imports.d.ts", "src/test/setup.ts"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "lib": ["ESNext", "DOM"],
+    "types": [
+      "vite-plugin-vue-layouts/client",
+      "pinia",
+      "vitest/globals",
+      "node",
+      "jsdom",
+      "testing-library__jest-dom"
     ],
-    "compilerOptions": {
-        "baseUrl": ".",
-        "target": "ESNext",
-        "module": "ESNext",
-        "moduleResolution": "Node",
-        "lib": ["ESNext", "DOM"],
-        "types": [
-            "vite-plugin-vue-layouts/client",
-            "pinia",
-            "vitest/globals",
-            // ⬅️ for describe/test/expect/etc.
-            "node",
-            "jsdom",
-            "testing-library__jest-dom"
-            // ⬅️ optional, if using testing-library
-        ],
-        "paths": {
-            "@/*": ["src/*"]
-        },
-        "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "strict": true
-    }
+    "paths": {
+      "@/*": ["src/*"],
+      "@types/*": ["src/types/*"]
+    },
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true
+  }
 }

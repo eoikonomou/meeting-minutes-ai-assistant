@@ -5,7 +5,6 @@ import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import vitePluginRequire from 'vite-plugin-require'
 import Fonts from 'unplugin-fonts/vite'
 import ESlintPlugin from 'vite-plugin-eslint'
-import VueRouter from 'unplugin-vue-router/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 
 export default defineConfig(({ mode }) => {
@@ -33,9 +32,6 @@ export default defineConfig(({ mode }) => {
             }
         },
         plugins: [
-            VueRouter({
-                routesFolder: 'src/pages' // or wherever your pages live
-            }),
             Vue({
                 template: {
                     transformAssetUrls
@@ -50,14 +46,10 @@ export default defineConfig(({ mode }) => {
             }),
             ESlintPlugin(),
             AutoImport({
-                imports: [
-                    'vue',
-                    'vue-router',
-                    'pinia'
-                ],
+                imports: ['vue', 'pinia'],
                 dts: 'src/auto-imports.d.ts', // generates global type declarations
-                dirs: ['src/stores'],         // optional: auto-import store composables
-                vueTemplate: true             // auto-imports also work in templates
+                dirs: ['src/stores'], // optional: auto-import store composables
+                vueTemplate: true // auto-imports also work in templates
             })
         ],
         resolve: {
